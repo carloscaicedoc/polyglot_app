@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyglot App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-info bg-info border-bottom border-dark border-1">
+        <div class="container-fluid">
+            <div class="d-flex">
+                <img src="{{url_for('static', filename='img/bike_icon_t.png')}}" class="ms-5"   alt="..."   style="width: 53px;">
+                <h1 class="text-center text-dark ms-2 mt-2">Polyglot App</h1>
+            </div>
+            <form class="d-flex">
+                <input class="form-control me-3 " type="search" placeholder="Translate" aria-label="Search">
+                <a href="/" class="btn btn-outline-dark text-dark me-3 px-4">Play</a>
+                <a href="/" class="btn btn-outline-dark text-dark me-3 px-4">Flash</a>
+                <a href="/" class="btn btn-outline-dark text-dark me-5 px-4">Logout</a>
+            </form>
+        </div>
+    </nav>
+    <div class="container ">
+        <div class="row justify-content-start">
+            <div class="list-group col-2 mt-5 ms-5">
+                <a href="#" class="list-group-item list-group-item-action active bg-dark text-info" aria-current="true">TOPICS</a>
+                <a href="/displayword/greetings/1" class="list-group-item list-group-item-action bg-light">Greetings</a>
+                <a href="/displayword/expressions/1" class="list-group-item list-group-item-action bg-light">Expressions</a>
+                <a href="/displayword/colors/1" class="list-group-item list-group-item-action bg-light">Colors</a>
+                <a href="/displayword/numbers/1" class="list-group-item list-group-item-action bg-light">Numbers</a>
+                <a href="/displayword/food/1" class="list-group-item list-group-item-action bg-light">Food</a>
+                <a href="/displayword/objects/1" class="list-group-item list-group-item-action bg-light">Objects</a>
+                <a href="/displayword/verbs/1" class="list-group-item list-group-item-action bg-light">Verbs</a>
+                <a href="/displayword/professions/1" class="list-group-item list-group-item-action bg-light">Professions</a>
+                <a href="/displayword/family/1" class="list-group-item list-group-item-action bg-light">Family</a>
+                <a href="/displayword/time/1" class="list-group-item list-group-item-action bg-light">Time</a>
+                <a href="/displayword/phrases/1" class="list-group-item list-group-item-action bg-light">Phrases</a>
+                <a href="/displayword/phrases/1" class="list-group-item list-group-item-action bg-light">All</a>
+            </div>
+            <div class="col-9">
+                <h2 class="text-center mt-3 mb-2 pt-3">FLASH CARDS</h2>
+                <h5 class="text-center mt-3 mb-2 pt-3">{{ word.category }}</h5>
+                <div class="card mx-auto mt-3" style="width: 27rem;">
+                    <img src="{{url_for('static', filename='img/orange_word.png')}}" class="card-img-top text-center" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-dark">palabra</h2>
+                        <p class="card-text text-center text-secondary">word</p>
+                        <div class="d-flex justify-content-between mt-1">
+                            <a href="#" class="btn btn-primary bg-warning text-dark btn-outline-dark ms-5">Opt 1</a>
+                            <a href="#" class="btn btn-primary bg-warning text-dark btn-outline-dark ms-5">Opt 2</a>
+                            <a href="#" class="btn btn-primary bg-warning text-dark btn-outline-dark me-5">Opt 3</a>
+                            <a href="#" class="btn btn-primary bg-warning text-dark btn-outline-dark me-5">Opt 4</a>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1">
+                            <a href="/displayword/{{word.category}}/{{pagenum - 1}}" class="btn btn-primary bg-dark text-light btn-outline-dark ms-5">Previous</a>
+                            <a href="/displayword/{{word.category}}/{{pagenum + 1}}" class="btn btn-primary bg-dark text-light btn-outline-dark me-5">Next</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
